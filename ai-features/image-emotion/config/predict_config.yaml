@@ -1,0 +1,35 @@
+#Defines output directories and parameters for the image emotion prediction pipeline.
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  supabase_url: ${SUPABASE_URL}
+  supabase_key: ${SUPABASE_KEY}
+  batch_size: 20
+  table_name: "images"
+
+image_processing:
+  root_dir: artifacts/image_processing
+  target_size: [224, 224]
+  max_image_size: 2048
+  normalize: true
+  enhance_contrast: true
+
+face_detection:
+  root_dir: artifacts/face_detection
+  scale_factor: 1.1
+  min_neighbors: 5
+  min_size: [30, 30]
+  padding: 20
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  model_name: "image_emotion_classifier"
+  emotion_classes: ["anger", "disgust", "fear", "joy", "neutral", "sadness", "surprise"]
+  confidence_threshold: 0.5
+  face_required: true
+  use_facial_features: true
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  mlflow_uri: ""

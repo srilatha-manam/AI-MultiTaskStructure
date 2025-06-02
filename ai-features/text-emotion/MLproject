@@ -1,0 +1,18 @@
+# Entry point and configuration file for text emotion detection project
+name: text-emotion-detection
+
+conda_env: text-emotion_env.yaml
+
+entry_points:
+  main:
+    parameters:
+      config: {type: str, default: "config/train_config.yaml"}
+    command: "python main.py --config {config}"
+  
+  predict:
+    parameters:
+      text: {type: str}
+    command: "python -c 'from src.pipeline.prediction_pipeline import PredictionPipeline; p = PredictionPipeline(); print(p.predict_single(\"{text}\"))'"
+  
+  serve:
+    command: "python main.py"

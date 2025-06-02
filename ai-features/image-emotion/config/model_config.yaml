@@ -1,0 +1,37 @@
+# This is a conda environment file for the image-emotion project.
+model:
+  name: "image_emotion_classifier"
+  type: "rule_based"
+  version: "1.0.0"
+
+emotions:
+  classes: ["anger", "disgust", "fear", "joy", "neutral", "sadness", "surprise"]
+  confidence_threshold: 0.5
+
+image_processing:
+  target_size: [224, 224]
+  max_size: 2048
+  preprocessing:
+    normalize: true
+    enhance_contrast: true
+    resize: true
+
+face_detection:
+  haar_cascade:
+    enabled: true
+    scale_factor: 1.1
+    min_neighbors: 5
+    min_size: [30, 30]
+  padding: 20
+  require_face: false
+
+features:
+  extract_facial_features: true
+  extract_geometry_features: true
+  extract_texture_features: true
+  extract_intensity_features: true
+
+prediction:
+  batch_size: 10
+  timeout: 30
+  save_features: true

@@ -1,0 +1,36 @@
+#Defines  paths and parameters for training a text emotion classifier model
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  supabase_url: ${SUPABASE_URL}
+  supabase_key: ${SUPABASE_KEY}
+  batch_size: 100
+  table_name: "dialogs"
+
+data_preprocessing:
+  root_dir: artifacts/data_preprocessing  
+  min_text_length: 3
+  max_text_length: 5000
+  remove_urls: true
+  remove_mentions: true
+  lowercase: true
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  extract_features: true
+  validate_text: true
+  normalize_features: true
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  model_name: "text_emotion_classifier"
+  emotion_classes: ["joy", "sadness", "anger", "fear", "surprise", "disgust", "neutral"]
+  confidence_threshold: 0.5
+  use_vader: true
+  use_textblob: true
+  use_patterns: true
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  mlflow_uri: ""

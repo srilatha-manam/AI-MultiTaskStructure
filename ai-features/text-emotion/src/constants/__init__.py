@@ -1,0 +1,1 @@
+# Constants package for text emotion detection

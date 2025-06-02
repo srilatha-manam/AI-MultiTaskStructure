@@ -1,0 +1,17 @@
+name: image-emotion-detection
+
+conda_env: image-emotion_env.yaml
+
+entry_points:
+  main:
+    parameters:
+      config: {type: str, default: "config/predict_config.yaml"}
+    command: "python main.py --config {config}"
+  
+  predict:
+    parameters:
+      image_url: {type: str}
+    command: "python -c 'from src.pipeline.prediction_pipeline import PredictionPipeline; p = PredictionPipeline(); print(p.predict_from_url(\"{image_url}\"))'"
+  
+  serve:
+    command: "python main.py"

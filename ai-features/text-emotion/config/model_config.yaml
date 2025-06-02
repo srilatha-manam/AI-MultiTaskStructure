@@ -1,0 +1,38 @@
+#Defines rules for a text emotion classifier model
+model:
+  name: "text_emotion_classifier"
+  type: "rule_based"
+  version: "1.0.0"
+
+emotions:
+  classes: ["joy", "sadness", "anger", "fear", "surprise", "disgust", "neutral"]
+  confidence_threshold: 0.5
+
+text_processing:
+  min_length: 3
+  max_length: 5000
+  preprocessing:
+    lowercase: true
+    remove_urls: true
+    remove_mentions: true
+    remove_excessive_punctuation: true
+
+sentiment_analysis:
+  vader:
+    enabled: true
+    weight: 0.4
+  textblob:
+    enabled: true
+    weight: 0.3
+  patterns:
+    enabled: true
+    weight: 0.3
+
+features:
+  extract_text_features: true
+  extract_sentiment_features: true
+  extract_pattern_features: true
+
+prediction:
+  batch_size: 50
+  timeout: 30
