@@ -1,3 +1,4 @@
+#main file for text emotion detection service
 import uvicorn
 from src.app import app
 
