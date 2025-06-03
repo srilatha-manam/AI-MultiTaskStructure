@@ -1,3 +1,4 @@
+#main file for image emotion detection service
 import uvicorn
 from src.app import app
 

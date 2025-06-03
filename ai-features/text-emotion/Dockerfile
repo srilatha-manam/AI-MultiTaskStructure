@@ -1,3 +1,4 @@
+#text emotion detection dockerfile
 FROM python:3.9-slim
 
 WORKDIR /app
@@ -16,7 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN python -c "import nltk; nltk.download('vader_lexicon'); nltk.download('punkt')"
 
 # Copy shared utilities
-COPY ../../shared /app/shared
+#COPY ../shared /app/shared
 
 # Copy application code
 COPY . .
