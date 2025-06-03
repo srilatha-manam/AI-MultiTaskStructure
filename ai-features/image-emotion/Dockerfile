@@ -1,3 +1,4 @@
+# Dockerfile for Text Emotion Analysis Service
 FROM python:3.10-slim
 
 WORKDIR /app
@@ -20,7 +21,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy shared utilities
-COPY ../../shared /app/shared
+#COPY ../shared /app/shared
 
 # Copy application code
 COPY . .
@@ -29,11 +30,11 @@ COPY . .
 RUN mkdir -p logs artifacts
 
 # Expose port
-EXPOSE 8000
+EXPOSE 8001
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8000/ || exit 1
+    CMD curl -f http://localhost:8001/ || exit 1
 
 # Run the application
 CMD ["python", "main.py"]

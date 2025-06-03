@@ -1,1 +1,11 @@
 2025-06-02 16:02:46,383 - image_emotion_api - INFO - Analyzing uploaded image: image (15).png
+2025-06-02 17:41:31,352 - image_emotion_api - ERROR - Error retrieving emotions: 'SupabaseClient' object has no attribute 'get_processed_emotions'
+2025-06-02 17:46:34,204 - image_emotion_api - INFO - Analyzing uploaded image: image (13).png
+2025-06-02 17:46:50,289 - image_emotion_api - INFO - Starting image processing from Supabase...
+2025-06-02 17:46:58,089 - image_emotion_api - ERROR - Error processing images: Error processing images from Supabase: 'SupabaseClient' object has no attribute 'save_emotion_result'
+2025-06-02 18:01:36,959 - image_emotion_api - INFO - Starting image processing from Supabase...
+2025-06-02 18:01:47,587 - image_emotion_api - ERROR - Error processing images: Error processing images from Supabase: 'SupabaseClient' object has no attribute 'save_emotion_result'
+2025-06-02 18:01:59,537 - image_emotion_api - INFO - Starting image processing from Supabase...
+2025-06-02 18:02:07,480 - image_emotion_api - ERROR - Error processing images: Error processing images from Supabase: 'SupabaseClient' object has no attribute 'save_emotion_result'
+2025-06-02 18:02:35,239 - image_emotion_api - ERROR - Error retrieving emotions: 'SupabaseClient' object has no attribute 'get_processed_emotions'
+2025-06-02 18:03:02,736 - image_emotion_api - ERROR - Error retrieving stats: 'SupabaseClient' object has no attribute 'get_emotion_stats'
